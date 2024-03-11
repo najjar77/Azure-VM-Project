@@ -1,6 +1,4 @@
-<script setup>
-import Button from "primevue/button";
-</script>
+<script setup></script>
 <template>
   <FileUploaderComponent />
 </template>
