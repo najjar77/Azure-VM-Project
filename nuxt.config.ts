@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  server: {
+    port: 80,
+  },
+  devServer: {
+    port: 80,
+  },
   modules: ["nuxt-primevue"],
   primevue: {
     usePrimeVue: true,
