@@ -9,9 +9,6 @@ export default defineNuxtConfig({
     },
   },
   css: ["primevue/resources/themes/aura-light-green/theme.css"],
-  server: {
-    port: 80,
-  },
   devServer: {
     port: 80,
   },
