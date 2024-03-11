@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   primevue: {
     usePrimeVue: true,
     components: {
-      include: ["Button", "DataTable"],
+      include: ["Button", "DataTable", "Divider"],
     },
   },
   css: ["primevue/resources/themes/aura-light-green/theme.css"],
