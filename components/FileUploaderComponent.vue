@@ -10,7 +10,7 @@ const files = ref<FileList | null>(null);
 function handleFileChange(e: Event) {
   //@ts-ignore
   files.value = (e.target as HTMLInputElement).files;
-  //console.log(files.value);
+  console.log("Selected Files Value: ", files.value);
 }
 async function handleFileSubmit() {
   const fd = new FormData();
