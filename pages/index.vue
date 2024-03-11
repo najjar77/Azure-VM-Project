@@ -2,7 +2,6 @@
 import Button from "primevue/button";
 </script>
 <template>
-  <div>Hello</div>
-  <Button label="Holaa Amigo" />
+  <FileUploaderComponent />
 </template>
 <style scoped></style>
