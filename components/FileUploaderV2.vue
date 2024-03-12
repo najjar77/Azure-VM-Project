@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import fs from "fs";
 
 const file = ref<File | null>(null);
-
+const uploadFileText = "";
 const uploadFile = (event: Event) => {
   const input = event.target as HTMLInputElement;
   if (input.files?.length) {
@@ -16,12 +17,7 @@ const submitFile = async () => {
     console.log("fileValue: ", file.value);
 
     formData.append("file", file.value);
-
-    const fs = require("fs");
-    // To read Static Files
-    const files = fs.readdirSync("./api/");
-    console.log("file : ", files);
-
+    console.log("fs= ", fs.readFileSync("/api/upload.ts"));
     try {
       await fetch("./server/api/upload.ts", {
         method: "POST",
