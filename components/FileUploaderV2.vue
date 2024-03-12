@@ -16,13 +16,16 @@ const submitFile = async () => {
     console.log("fileValue: ", file.value);
 
     formData.append("file", file.value);
-    const fileupText = fs.readFileSync("/api/upload.ts");
-    console.log("fs= ", fileupText);
+    //const fileupText = fs.readFileSync("/api/upload.ts");
+    //console.log("fs= ", fileupText);
     try {
-      await fetch("./server/api/upload.ts", {
-        method: "POST",
-        body: formData,
-      });
+      await fetch(
+        "/home/azureuser/Projects/Azure-VM-Project/server/api/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       alert("File uploaded successfully");
     } catch (error) {
       console.error("Upload failed", error);
