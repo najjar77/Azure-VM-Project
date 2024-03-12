@@ -11,14 +11,11 @@ export default defineEventHandler(async (event) => {
     const UploadedFilePaths: string[] = [];
 
     files.forEach((file) => {
-      console.log("cwd: ", process.cwd());
-
       const filePath = path.join(
         process.cwd(),
-        "uploads",
+        "../uploads",
         file.filename as string
       );
-      console.log("FilePath: ", filePath);
 
       fs.writeFileSync(filePath, file.data);
       UploadedFilePaths.push(file.filename as string);
