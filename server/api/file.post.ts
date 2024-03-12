@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
     });
     return UploadedFilePaths;
   } catch (error) {
+    console.error(error);
     return createError({
       statusCode: 500,
       data: "Something went wrong with the server!",
