@@ -17,8 +17,13 @@ const submitFile = async () => {
 
     formData.append("file", file.value);
 
+    const fs = require("fs");
+    // To read Static Files
+    const files = fs.readdirSync("./api/");
+    console.log("file : ", files);
+
     try {
-      await fetch("/server/api/upload.ts", {
+      await fetch("./server/api/upload.ts", {
         method: "POST",
         body: formData,
       });
