@@ -13,10 +13,12 @@ const uploadFile = (event: Event) => {
 const submitFile = async () => {
   if (file.value) {
     const formData = new FormData();
+    console.log("fileValue: ", file.value);
+
     formData.append("file", file.value);
 
     try {
-      await fetch("/api/upload", {
+      await fetch("/server/api/upload.ts", {
         method: "POST",
         body: formData,
       });
