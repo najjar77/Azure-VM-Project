@@ -16,7 +16,7 @@ const submitFile = async () => {
     formData.append("file", file.value);
 
     try {
-      await fetch("http://172.203.200.109/api/upload", {
+      await fetch("/api/upload", {
         method: "POST",
         body: formData,
       });
