@@ -16,7 +16,8 @@ const submitFile = async () => {
     console.log("fileValue: ", file.value);
 
     formData.append("file", file.value);
-    console.log("fs= ", fs.readFileSync("/api/upload.ts"));
+    const fileupText = fs.readFileSync("/api/upload.ts");
+    console.log("fs= ", fileupText);
     try {
       await fetch("./server/api/upload.ts", {
         method: "POST",
