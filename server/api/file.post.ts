@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
       const filePath = path.join(
         process.cwd(),
-        "/UploadedFiles",
+        "uploads",
         file.filename as string
       );
       console.log("FilePath: ", filePath);
