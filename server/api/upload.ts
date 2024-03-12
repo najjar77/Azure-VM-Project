@@ -19,11 +19,13 @@ export default defineEventHandler(async (event) => {
         // Behandlung von einzelnen Dateien
         if (!Array.isArray(uploadedFile)) {
           const file = uploadedFile; // Keine Notwendigkeit für 'as File', da es bereits vom korrekten Typ ist
+
           //@ts-ignore
           const oldPath = file.filepath;
+          console.log("oldPath value: ", oldPath);
           //@ts-ignore
           const newPath = `./uploads/${file.originalFilename}`;
-
+          console.log("NewPath value: ", newPath);
           fs.rename(oldPath, newPath, (err) => {
             if (err) {
               reject(err);
