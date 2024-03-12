@@ -30,7 +30,7 @@ async function handleFileSubmit() {
   <Card class="Card-Custom">
     <template #title>File Uploader</template>
     <template #content>
-      <p class="m-0">to test you'r script upload the file here.</p>
+      <p class="m-0">to test your script upload the file here.</p>
     </template>
     <template #footer>
       <div>

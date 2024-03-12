@@ -1,3 +1,7 @@
 <script setup lang="ts"></script>
-<template>Results</template>
+<template>
+  <div>
+    <IncomingDataTabel />
+  </div>
+</template>
 <style scoped></style>
