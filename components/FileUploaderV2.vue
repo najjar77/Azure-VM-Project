@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import fs from "fs";
+import * as fs from "fs";
 
 const file = ref<File | null>(null);
-const uploadFileText = "";
 const uploadFile = (event: Event) => {
   const input = event.target as HTMLInputElement;
   if (input.files?.length) {
