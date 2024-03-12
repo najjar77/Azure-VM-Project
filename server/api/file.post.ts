@@ -11,6 +11,8 @@ export default defineEventHandler(async (event) => {
     const UploadedFilePaths: string[] = [];
 
     files.forEach((file) => {
+      console.log("cwd: ", process.cwd());
+
       const filePath = path.join(
         process.cwd(),
         "/UploadedFiles",
