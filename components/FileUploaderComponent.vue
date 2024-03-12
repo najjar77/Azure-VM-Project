@@ -19,7 +19,7 @@ async function handleFileSubmit() {
       fd.append(`index${index}`, file);
     });
   }
-  const data = await $fetch("/api/file", {
+  const data = await $fetch("/api/file.post", {
     method: "POST",
     body: fd,
   });
