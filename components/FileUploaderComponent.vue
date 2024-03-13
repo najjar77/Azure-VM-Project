@@ -36,7 +36,9 @@ async function handleFileSubmit() {
       <div>
         <form @submit.prevent="handleFileSubmit">
           <input type="file" @change="handleFileChange" />
-          <button type="submit">Submit file</button>
+
+          <Button label="submit file" type="submit" />
+          <!---<button type="submit">Submit file</button>-->
         </form>
       </div>
     </template>

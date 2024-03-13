@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     const results = files.map((file) => {
       const filePath = path.join(resultsDirPath, file);
       const content = fs.readFileSync(filePath, "utf-8");
-      return content;
+      return { name: file, content };
     });
 
     return results;
