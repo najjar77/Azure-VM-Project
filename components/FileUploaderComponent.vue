@@ -28,7 +28,7 @@ async function handleFileSubmit() {
 
 async function downloadTemplate() {
   try {
-    const response = await fetch("/api/download-template");
+    const response = await fetch("../api/download-template");
     if (!response.ok) throw new Error("Server responded with an error.");
 
     const blob = await response.blob();
