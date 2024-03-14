@@ -25,6 +25,11 @@ async function handleFileSubmit() {
   });
   console.log(data);
 }
+
+function downloadTemplate() {
+  const path = "templates/template.java";
+  window.open(path, "_blank");
+}
 </script>
 <template>
   <Card class="Card-Custom">
@@ -41,6 +46,9 @@ async function handleFileSubmit() {
       </div>
     </template>
   </Card>
+  <div>
+    <Button label="Download Template" @click="downloadTemplate" size="small" />
+  </div>
 </template>
 <style scoped>
 .Card-Custom {
