@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineEventHandler(async (event) => {
   try {
-    const filePath = path.join(process.cwd(), "templates", "template.java");
+    const filePath = path.join(process.cwd(), "../templates", "template.java");
     const fileName = "template.java";
 
     // Prüfen, ob die Datei existiert
