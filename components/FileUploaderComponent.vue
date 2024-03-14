@@ -26,10 +26,23 @@ async function handleFileSubmit() {
   console.log(data);
 }
 
-function downloadTemplate() {
-  const path =
-    "/home/azureuser/Projects/Azure-VM-Project/templates/template.java";
-  window.open(path, "_blank");
+async function downloadTemplate() {
+  try {
+    const response = await fetch("/api/download-template");
+    if (!response.ok) throw new Error("Server responded with an error.");
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "template.java";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  } catch (error) {
+    console.error("Fehler beim Herunterladen der Datei: ", error);
+  }
 }
 </script>
 <template>
