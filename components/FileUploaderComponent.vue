@@ -27,7 +27,8 @@ async function handleFileSubmit() {
 }
 
 function downloadTemplate() {
-  const path = "templates/template.java";
+  const path =
+    "/home/azureuser/Projects/Azure-VM-Project/templates/template.java";
   window.open(path, "_blank");
 }
 </script>
