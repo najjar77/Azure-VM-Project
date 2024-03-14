@@ -32,7 +32,7 @@ onMounted(fetchResults);
           <!-- Zugriff auf name und content jedes Ergebnis-Objekts -->
           <li v-for="(result, index) in results" :key="index">
             <strong>Dateiname: </strong>{{ result.name }}<br />
-            <strong>Resultat: </strong>{{ result.content }}
+            <strong>Resultat: </strong>{{ result.content }}<br />
           </li>
         </ul>
         <p v-else>Keine Ergebnisse gefunden.</p>
