@@ -1,23 +1,32 @@
-// server/api/download-template.ts
-import { defineEventHandler, createError } from "h3";
-import { readFile } from "fs/promises";
-import { resolve } from "path";
+import { defineEventHandler, sendStream } from "h3";
+import fs from "fs";
+import path from "path";
 
 export default defineEventHandler(async (event) => {
-  const filePath = resolve("templates/template.java"); // Pfad zur Datei relativ zum Projektroot
-
   try {
-    const data = await readFile(filePath);
+    const filePath = path.join(process.cwd(), "templates", "template.java");
+    const fileName = "template.java";
 
-    event.res.setHeader("Content-Type", "application/java");
+    // Prüfen, ob die Datei existiert
+    if (!fs.existsSync(filePath)) {
+      return createError({ statusCode: 404, statusMessage: "File not found" });
+    }
+
+    // Setzen des Headers für den Dateidownload
+    event.res.setHeader("Content-Type", "application/octet-stream");
     event.res.setHeader(
       "Content-Disposition",
-      'attachment; filename="template.java"'
+      `attachment; filename="${fileName}"`
     );
 
-    return data;
+    // Stream der Datei zurückgeben
+    const fileStream = fs.createReadStream(filePath);
+    return sendStream(event, fileStream);
   } catch (error) {
-    // Datei nicht gefunden oder Lesefehler
-    throw createError({ statusCode: 404, statusMessage: "File not found" });
+    console.error("Error while trying to download file:", error);
+    return createError({
+      statusCode: 500,
+      data: "Something went wrong with the server!",
+    });
   }
 });
