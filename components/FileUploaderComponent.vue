@@ -48,7 +48,7 @@ async function handleFileSubmit() {
   showSuccess();
   console.log(data);
   setTimeout(() => {
-    window.location.reload();
+    // window.location.reload();
   }, 2000);
 }
 </script>
