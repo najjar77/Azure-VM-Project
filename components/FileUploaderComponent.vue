@@ -4,6 +4,28 @@ import FileUpload from "primevue/fileupload";
 import Card from "primevue/card";
 import "primeicons/primeicons.css";
 import { ref } from "vue";
+import Toast from "primevue/toast";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+function showSuccess() {
+  toast.add({
+    severity: "success",
+    summary: "Upload Successfully",
+    detail: "Your file was successfully submited",
+    life: 5000,
+  });
+}
+
+function showError() {
+  toast.add({
+    severity: "error",
+    summary: "Upload Error",
+    detail: "Your file could not be submitted",
+    life: 5000,
+  });
+}
 
 const files = ref<FileList | null>(null);
 //@ts-ignore
@@ -23,26 +45,11 @@ async function handleFileSubmit() {
     method: "POST",
     body: fd,
   });
+  showSuccess();
   console.log(data);
-}
-
-async function downloadTemplate() {
-  try {
-    const response = await fetch("../api/download-template");
-    if (!response.ok) throw new Error("Server responded with an error.");
-
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "template.java";
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
-    a.remove();
-  } catch (error) {
-    console.error("Fehler beim Herunterladen der Datei: ", error);
-  }
+  setTimeout(() => {
+    window.location.reload();
+  }, 2000);
 }
 </script>
 <template>
