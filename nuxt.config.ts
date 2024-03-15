@@ -12,5 +12,5 @@ export default defineNuxtConfig({
   devServer: {
     port: 80,
   },
-  plugins: ["~/plugins/toast-service.ts"],
+  plugins: ["~/plugins/toast-service"],
 });

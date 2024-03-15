@@ -49,10 +49,11 @@ async function handleFileSubmit() {
   console.log(data);
   setTimeout(() => {
     window.location.reload();
-  }, 2000);
+  }, 4000);
 }
 </script>
 <template>
+  <Toast />
   <Card class="Card-Custom">
     <template #title>File Uploader</template>
     <template #content>
