@@ -1,14 +1,26 @@
-<script setup>
+<script setup lang="ts">
 import FileUploaderComponent from "~/components/FileUploaderComponent.vue";
-import Divider from "primevue/divider";
 </script>
 <template>
-  <NuxtLink to="/results">
-    <Button label="Go to Results" severity="secondary" />
-  </NuxtLink>
+  <div class="parent-container">
+    <NuxtLink to="/results">
+      <Button label="Go to Results" severity="secondary" />
+    </NuxtLink>
 
-  <div>
-    <FileUploaderComponent />
+    <div class="file-uploader-container">
+      <FileUploaderComponent />
+    </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.parent-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Optional: Makes the parent container fill the height of the viewport */
+}
+
+.file-uploader-container {
+  /* Additional styling for the FileUploaderComponent container as needed */
+}
+</style>

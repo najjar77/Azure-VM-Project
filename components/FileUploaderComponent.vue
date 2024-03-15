@@ -49,7 +49,10 @@ async function downloadTemplate() {
   <Card class="Card-Custom">
     <template #title>File Uploader</template>
     <template #content>
-      <p class="m-0">to test your script upload the file here.</p>
+      <p class="m-0">
+        Please submit your script here and give it a meaningful name. <br />
+        Allowed data types: .java .txt
+      </p>
     </template>
     <template #footer>
       <div>
@@ -61,11 +64,16 @@ async function downloadTemplate() {
     </template>
   </Card>
   <div>
-    <Button label="Download Template" @click="downloadTemplate" size="small" />
+    <Button
+      label="Download Template"
+      @click="downloadTemplate"
+      size="small"
+      icon="pi pi-download"
+    />
   </div>
 </template>
 <style scoped>
 .Card-Custom {
-  width: 400px;
+  width: 550px;
 }
 </style>
