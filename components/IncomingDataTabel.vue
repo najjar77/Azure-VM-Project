@@ -25,17 +25,17 @@ onMounted(fetchResults);
 
 <template>
   <Card class="Card-Custom">
-    <template #title>Ergebnisse</template>
+    <template #title>Results</template>
     <template #content>
       <div class="content-wrapper">
         <ul v-if="results.length > 0">
           <!-- Zugriff auf name und content jedes Ergebnis-Objekts -->
           <li v-for="(result, index) in results" :key="index">
-            <strong>Dateiname: </strong>{{ result.name }}<br />
-            <strong>Resultat: </strong>{{ result.content }}<br />
+            <strong>File Name: </strong>{{ result.name }}<br />
+            <strong>Outcome: </strong>{{ result.content }}<br />
           </li>
         </ul>
-        <p v-else>Keine Ergebnisse gefunden.</p>
+        <p v-else>No results were found.</p>
       </div>
     </template>
   </Card>
