@@ -64,6 +64,16 @@ async function handleFileSubmit() {
     </template>
     <template #footer>
       <div>
+        <FileUpload
+          mode="basic"
+          :auto="true"
+          :customUpload="true"
+          @select="handleFileSubmit"
+          accept=".java, .txt"
+          chooseLabel="Select File"
+        ></FileUpload>
+      </div>
+      <div>
         <form @submit.prevent="handleFileSubmit">
           <input type="file" @change="handleFileChange" />
           <button type="submit">Submit file</button>
