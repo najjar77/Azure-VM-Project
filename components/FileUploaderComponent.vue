@@ -49,7 +49,7 @@ async function handleFileSubmit() {
   console.log(data);
   setTimeout(() => {
     window.location.reload();
-  }, 4000);
+  }, 2000);
 }
 </script>
 <template>
