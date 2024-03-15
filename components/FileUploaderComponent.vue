@@ -66,7 +66,7 @@ async function handleFileSubmit() {
       <div>
         <FileUpload
           mode="basic"
-          :auto="true"
+          :auto="false"
           :customUpload="true"
           @select="handleFileSubmit"
           accept=".java, .txt"
