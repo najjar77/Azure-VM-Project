@@ -3,10 +3,6 @@ import FileUploaderComponent from "~/components/FileUploaderComponent.vue";
 </script>
 <template>
   <div class="parent-container">
-    <NuxtLink to="/results">
-      <Button label="Go to Results" severity="secondary" />
-    </NuxtLink>
-
     <div class="file-uploader-container">
       <FileUploaderComponent />
     </div>

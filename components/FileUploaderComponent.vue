@@ -63,14 +63,6 @@ async function downloadTemplate() {
       </div>
     </template>
   </Card>
-  <div>
-    <Button
-      label="Download Template"
-      @click="downloadTemplate"
-      size="small"
-      icon="pi pi-download"
-    />
-  </div>
 </template>
 <style scoped>
 .Card-Custom {
