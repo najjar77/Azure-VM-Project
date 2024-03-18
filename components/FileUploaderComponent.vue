@@ -59,7 +59,7 @@ async function handleFileSubmit() {
   }
   setTimeout(() => {
     window.location.reload();
-  }, 3000);
+  }, 2000);
 }
 </script>
 <template>
@@ -73,7 +73,7 @@ async function handleFileSubmit() {
       </p>
     </template>
     <template #footer>
-      <div>
+      <div class="button-container">
         <FileUpload
           mode="basic"
           :auto="false"
@@ -88,17 +88,26 @@ async function handleFileSubmit() {
           @click="handleFileSubmit"
         ></Button>
       </div>
+      <!--
       <div>
         <form @submit.prevent="handleFileSubmit">
           <input type="file" @change="handleFileChange" />
           <button type="submit">Submit file</button>
         </form>
       </div>
+      -->
     </template>
   </Card>
 </template>
 <style scoped>
 .Card-Custom {
   width: 550px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center; /* This will vertically center align items if their heights are different */
+  justify-content: start; /* Aligns items to the start of the container */
+  gap: 50px; /* This creates space between the buttons */
 }
 </style>
