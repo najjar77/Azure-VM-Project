@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Button from "primevue/button";
-import FileUpload from "primevue/fileupload";
+import FileUpload, { type FileUploadSelectEvent } from "primevue/fileupload";
 import Card from "primevue/card";
 import "primeicons/primeicons.css";
 import { ref } from "vue";
@@ -25,6 +25,11 @@ function showError() {
     detail: "Your file could not be submitted",
     life: 5000,
   });
+}
+
+function handleFileChange2(event: FileUploadSelectEvent) {
+  files.value = event.files; // Assuming `files` is the correct property.
+  console.log("Selected Files Value22: ", files.value);
 }
 
 const files = ref<FileList | null>(null);
@@ -53,11 +58,9 @@ async function handleFileSubmit() {
     }
   }
   setTimeout(() => {
-    // window.location.reload();
-  }, 4000);
+    window.location.reload();
+  }, 3000);
 }
-
-//TODO: the select of the api call musst be corrected, also the triggering of the showSuccess
 </script>
 <template>
   <Toast />
@@ -73,9 +76,9 @@ async function handleFileSubmit() {
       <div>
         <FileUpload
           mode="basic"
-          :auto="true"
+          :auto="false"
           :customUpload="true"
-          @select="handleFileSubmit"
+          @select="handleFileChange2"
           accept=".java, .txt"
           chooseLabel="Select File"
         ></FileUpload>
