@@ -101,13 +101,12 @@ async function handleFileSubmit() {
 </template>
 <style scoped>
 .Card-Custom {
-  width: 550px;
+  width: 600px;
 }
 
 .button-container {
   display: flex;
   align-items: center; /* This will vertically center align items if their heights are different */
-  justify-content: start; /* Aligns items to the start of the container */
   gap: 50px; /* This creates space between the buttons */
 }
 </style>
