@@ -20,6 +20,8 @@ export default defineEventHandler(async (event) => {
       fs.writeFileSync(filePath, file.data);
       UploadedFilePaths.push(file.filename as string);
     });
+    console.log("return uploaded filepath: ", UploadedFilePaths);
+
     return UploadedFilePaths;
   } catch (error) {
     console.error(error);

@@ -45,12 +45,19 @@ async function handleFileSubmit() {
     method: "POST",
     body: fd,
   });
-  showSuccess();
-  console.log(data);
+
+  if (Array.isArray(data)) {
+    if (data.length > 0) {
+      showSuccess();
+      console.log("Success is called ", data);
+    }
+  }
   setTimeout(() => {
     // window.location.reload();
-  }, 2000);
+  }, 4000);
 }
+
+//TODO: the select of the api call musst be corrected, also the triggering of the showSuccess
 </script>
 <template>
   <Toast />
@@ -66,12 +73,17 @@ async function handleFileSubmit() {
       <div>
         <FileUpload
           mode="basic"
-          :auto="false"
+          :auto="true"
           :customUpload="true"
           @select="handleFileSubmit"
           accept=".java, .txt"
           chooseLabel="Select File"
         ></FileUpload>
+        <Button
+          label="Submit File"
+          icon="pi pi-check"
+          @click="handleFileSubmit"
+        ></Button>
       </div>
       <div>
         <form @submit.prevent="handleFileSubmit">
