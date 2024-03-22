@@ -33,6 +33,7 @@ onMounted(fetchResults);
           <li v-for="(result, index) in results" :key="index">
             <strong>File Name: </strong>{{ result.name }}<br />
             <strong>Outcome: </strong>{{ result.content }}<br />
+            <br />
           </li>
         </ul>
         <p v-else>No results were found.</p>
@@ -43,12 +44,12 @@ onMounted(fetchResults);
 
 <style scoped>
 .Card-Custom {
-  max-width: 800px; /* Use max-width for flexible width up to 800px */
+  max-width: 1000px; /* Use max-width for flexible width up to 800px */
   margin-top: 20px;
 }
 
 .content-wrapper {
-  max-height: auto; /* Adjust this value based on your needs */
+  max-height: 700px; /* Adjust this value based on your needs */
   overflow-y: auto; /* Show scrollbar when content exceeds max-height */
 }
 </style>
