@@ -44,25 +44,46 @@ async function downloadTemplate() {
   }
 }
 </script>
+
 <template>
   <Menubar :model="menuItems">
     <template #start>
       <img src="../assets/GITlogo.png" alt="Icon" class="toolbar-icon" />
     </template>
     <template #end>
-      <Button
-        label="Download Template"
-        @click="downloadTemplate"
-        size="small"
-        icon="pi pi-download"
-      />
+      <div class="download-buttons">
+        <Button
+          label="Download Template"
+          @click="downloadTemplate"
+          size="small"
+          icon="pi pi-download"
+        />
+        <Button
+          label="Download Template 2"
+          @click="downloadTemplate"
+          size="small"
+          icon="pi pi-download"
+        />
+        <Button
+          label="Download Template 3"
+          @click="downloadTemplate"
+          size="small"
+          icon="pi pi-download"
+        />
+      </div>
     </template>
   </Menubar>
 </template>
+
 <style scoped>
 .toolbar-icon {
   margin-right: 10px;
   width: 40px; /* Sets the width of the Logo */
   height: 40px; /* Sets the height of the Logo */
+}
+
+.download-buttons {
+  display: flex;
+  gap: 10px; /* Sets the space between the buttons */
 }
 </style>
