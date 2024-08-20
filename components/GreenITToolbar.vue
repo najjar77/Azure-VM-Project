@@ -59,13 +59,19 @@ async function downloadTemplate() {
           icon="pi pi-download"
         />
         <Button
-          label="Download Template 2"
+          label="Template Session 1"
           @click="downloadTemplate"
           size="small"
           icon="pi pi-download"
         />
         <Button
-          label="Download Template 3"
+          label="Template Session 2"
+          @click="downloadTemplate"
+          size="small"
+          icon="pi pi-download"
+        />
+        <Button
+          label="Template Session 3"
           @click="downloadTemplate"
           size="small"
           icon="pi pi-download"
