@@ -4,8 +4,12 @@ import path from "path";
 
 export default defineEventHandler(async (event) => {
   try {
-    const filePath = path.join(process.cwd(), "../templates", "template.java");
-    const fileName = "template.java";
+    // Den Dateinamen aus dem Query-Parameter lesen, Standardwert ist "template.java"
+    const query = event.req.url
+      ? new URL(event.req.url, `http://${event.req.headers.host}`).searchParams
+      : null;
+    const fileName = query?.get("filename") || "template.java";
+    const filePath = path.join(process.cwd(), "../templates", fileName);
 
     // Prüfen, ob die Datei existiert
     if (!fs.existsSync(filePath)) {

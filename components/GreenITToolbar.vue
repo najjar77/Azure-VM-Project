@@ -46,7 +46,9 @@ async function downloadTemplate() {
 
 async function downloadTemplate1() {
   try {
-    const response = await fetch("../api/download-template");
+    const response = await fetch(
+      "../api/download-template?filename=testcon.java"
+    );
     if (!response.ok) throw new Error("Server responded with an error.");
 
     const blob = await response.blob();
