@@ -43,6 +43,25 @@ async function downloadTemplate() {
     console.error("Fehler beim Herunterladen der Datei: ", error);
   }
 }
+
+async function downloadTemplate1() {
+  try {
+    const response = await fetch("../api/download-template");
+    if (!response.ok) throw new Error("Server responded with an error.");
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "testcon.java";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  } catch (error) {
+    console.error("Fehler beim Herunterladen der Datei: ", error);
+  }
+}
 </script>
 
 <template>
@@ -60,7 +79,7 @@ async function downloadTemplate() {
         />
         <Button
           label="Template Session 1"
-          @click="downloadTemplate"
+          @click="downloadTemplate1"
           size="small"
           icon="pi pi-download"
         />
