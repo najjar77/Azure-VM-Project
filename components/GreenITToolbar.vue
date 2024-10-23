@@ -44,7 +44,7 @@ async function downloadTemplate() {
   }
 }
 
-async function downloadTemplate1() {
+async function downloadTemplate_testcon() {
   try {
     const response = await fetch(
       "../api/download-template?filename=testcon.java"
@@ -56,6 +56,27 @@ async function downloadTemplate1() {
     const a = document.createElement("a");
     a.href = url;
     a.download = "testcon.java";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  } catch (error) {
+    console.error("Fehler beim Herunterladen der Datei: ", error);
+  }
+}
+
+async function downloadTemplate_Inefficient_Maps() {
+  try {
+    const response = await fetch(
+      "../api/download-template?filename=Inefficient_Maps.java"
+    );
+    if (!response.ok) throw new Error("Server responded with an error.");
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Inefficient_Maps.java";
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -81,13 +102,13 @@ async function downloadTemplate1() {
         />
         <Button
           label="Template Session 1"
-          @click="downloadTemplate1"
+          @click="downloadTemplate_testcon"
           size="small"
           icon="pi pi-download"
         />
         <Button
           label="Template Session 2"
-          @click="downloadTemplate"
+          @click="downloadTemplate_Inefficient_Maps"
           size="small"
           icon="pi pi-download"
         />
