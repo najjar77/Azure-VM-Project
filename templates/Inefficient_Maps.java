@@ -17,7 +17,7 @@ public class Measurement {
         Map<String, String> linkedHashMap = new LinkedHashMap<>();
         int numElements = 1000000;
 
-        // Insert elements 
+        // Insert elements
         for (int i = 0; i < numElements; i++) {
             linkedHashMap.put(UUID.randomUUID().toString(), "Value " + i);
         }
@@ -27,7 +27,7 @@ public class Measurement {
             String value = linkedHashMap.get(key);
         }
 
-        // Remove elements 
+        // Remove elements
         for (String key : linkedHashMap.keySet()) {
             linkedHashMap.remove(key);
         }
